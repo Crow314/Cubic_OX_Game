@@ -73,52 +73,43 @@ public class Cube {
         //Front
         Block tmpBlock0 = blocks[0][row][0];
         Block tmpBlock1 = blocks[0][row][1];
-        Block tmpBlock2 = blocks[0][row][2];
 
         switch(direction){
             case DIRECTION_LEFT:
-                //Right -> Front
+                //Front <- Right
                 blocks[0][row][0] = blocks[0][row][2];
                 blocks[0][row][1] = blocks[1][row][2];
-                blocks[0][row][2] = blocks[2][row][2];
 
-                //Back -> Right
+                //Right <- Back
                 blocks[0][row][2] = blocks[2][row][2];
                 blocks[1][row][2] = blocks[2][row][1];
+
+                //Back <- Left
                 blocks[2][row][2] = blocks[2][row][0];
-
-                //Left -> Back
-                blocks[2][row][2] = blocks[0][row][0];
                 blocks[2][row][1] = blocks[1][row][0];
-                blocks[2][row][0] = blocks[2][row][0];
 
-                //Front(tmp) -> Left
-                blocks[0][row][0] = tmpBlock0;
+                //Left <- Front(tmp)
+                blocks[2][row][0] = tmpBlock0;
                 blocks[1][row][0] = tmpBlock1;
-                blocks[2][row][0] = tmpBlock2;
 
                 return true;
 
             case DIRECTION_RIGHT:
-                //Left -> Front
-                blocks[0][row][0] = blocks[0][row][0];
+                //Front <- Left
+                blocks[0][row][0] = blocks[2][row][0];
                 blocks[0][row][1] = blocks[1][row][0];
-                blocks[0][row][2] = blocks[2][row][0];
 
-                //Back -> Left
-                blocks[0][row][0] = blocks[2][row][2];
+                //Left <- Back
+                blocks[2][row][0] = blocks[2][row][2];
                 blocks[1][row][0] = blocks[2][row][1];
-                blocks[2][row][0] = blocks[2][row][0];
 
-                //Right -> Back
+                //Back <- Right
                 blocks[2][row][2] = blocks[0][row][2];
                 blocks[2][row][1] = blocks[1][row][2];
-                blocks[2][row][0] = blocks[2][row][2];
 
-                //Front(tmp) -> Right
+                //Right <- Front(tmp)
                 blocks[0][row][2] = tmpBlock0;
                 blocks[1][row][2] = tmpBlock1;
-                blocks[2][row][2] = tmpBlock2;
 
                 return true;
 
@@ -132,52 +123,43 @@ public class Cube {
         //Front
         Block tmpBlock0 = blocks[0][0][column];
         Block tmpBlock1 = blocks[0][1][column];
-        Block tmpBlock2 = blocks[0][2][column];
 
         switch (direction){
             case DIRECTION_UP:
-                //Down -> Front
+                //Front <- Down
                 blocks[0][0][column] = blocks[0][2][column];
                 blocks[0][1][column] = blocks[1][2][column];
-                blocks[0][2][column] = blocks[2][2][column];
 
-                //Back -> Down
+                //Down <- Back
                 blocks[0][2][column] = blocks[2][2][column];
                 blocks[1][2][column] = blocks[2][1][column];
-                blocks[2][2][column] = blocks[2][0][column];
 
-                //Up -> Back
+                //Back <- Up
                 blocks[2][2][column] = blocks[2][0][column];
                 blocks[2][1][column] = blocks[1][0][column];
-                blocks[2][0][column] = blocks[0][0][column];
 
-                //Front(tmp) -> Up
+                //Up <- Front(tmp)
                 blocks[2][0][column] = tmpBlock0;
                 blocks[1][0][column] = tmpBlock1;
-                blocks[0][0][column] = tmpBlock2;
 
                 return true;
 
             case DIRECTION_DOWN:
-                //Up -> Front
+                //Front <- Up
                 blocks[0][0][column] = blocks[2][0][column];
                 blocks[0][1][column] = blocks[1][0][column];
-                blocks[0][2][column] = blocks[0][0][column];
 
-                //Back -> Up
+                //Up <- Back
                 blocks[2][0][column] = blocks[2][2][column];
                 blocks[1][0][column] = blocks[2][1][column];
-                blocks[0][0][column] = blocks[2][0][column];
 
-                //Down -> Back
+                //Back <- Down
                 blocks[2][2][column] = blocks[0][2][column];
                 blocks[2][1][column] = blocks[1][2][column];
-                blocks[2][0][column] = blocks[2][2][column];
 
-                //Front(tmp) -> Down
+                //Down <- Front(tmp)
                 blocks[0][2][column] = tmpBlock0;
                 blocks[1][2][column] = tmpBlock1;
-                blocks[2][2][column] = tmpBlock2;
 
                 return true;
 
