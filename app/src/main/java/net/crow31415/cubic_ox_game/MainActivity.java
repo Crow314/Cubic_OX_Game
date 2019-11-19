@@ -6,12 +6,16 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import net.crow31415.cubic_ox_game.game.Block;
 import net.crow31415.cubic_ox_game.game.Cube;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView mTextTurnUpside;
+    private TextView mTextTurnDownside;
     private Button[][] mBlockList;
     private Cube mCube;
     private int mTurn;
@@ -20,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mTextTurnUpside = findViewById(R.id.text_turn_upside);
+        mTextTurnDownside = findViewById(R.id.text_turn_downside);
 
         mBlockList = new Button[3][3];
 
@@ -216,6 +223,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void reload(){
+        switch(mTurn){
+            case Block.MARK_CIRCLE:
+                mTextTurnUpside.setText(R.string.turn_circle);
+                mTextTurnDownside.setText(R.string.turn_circle);
+                break;
+
+            case Block.MARK_CROSS:
+                mTextTurnUpside.setText(R.string.turn_cross);
+                mTextTurnDownside.setText(R.string.turn_cross);
+                break;
+        }
+
         for(int row=0; row<mCube.getSize(); row++){
             for(int column=0; column<mCube.getSize(); column++){
                 Button button = mBlockList[row][column];
