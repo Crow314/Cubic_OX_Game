@@ -1,7 +1,5 @@
 package net.crow31415.cubic_ox_game.game;
 
-import java.util.Scanner;
-
 public class Cube {
 
     public static final int DIRECTION_LEFT = 0;
@@ -20,106 +18,6 @@ public class Cube {
                 }
             }
         }
-    }
-
-    public void userInterface(int mark){
-        Scanner sc = new Scanner(System.in);
-        int action;
-        while (true){
-            System.out.println("1:mark 2:turn");
-            System.out.print("action:");
-            action = sc.nextInt();
-            if(action == 1 || action == 2){
-                break;
-            }
-            System.out.println("Illegal argument.");
-        }
-
-        switch (action){
-            case 1:
-                markInterface(mark);
-                break;
-
-            case 2:
-                turnInterface();
-                break;
-        }
-    }
-
-    public void markInterface(int mark){
-        Scanner sc = new Scanner(System.in);
-        while (true){
-            int x, y;
-            while (true){
-                System.out.print("row:");
-                y = sc.nextInt();
-                if(y>=0 && y< blocks[0].length){
-                    break;
-                }
-                System.out.println("Illegal argument.");
-            }
-
-            while (true){
-                System.out.print("column:");
-                x = sc.nextInt();
-                if(x>=0 && x< blocks[0][0].length){
-                    break;
-                }
-                System.out.println("Illegal argument.");
-            }
-
-            boolean success = mark(mark, x, y);
-            if(success){
-               break;
-            }
-            System.out.println("Illegal argument.");
-        }
-
-    }
-
-    public void turnInterface(){
-        Scanner sc = new Scanner(System.in);
-        while (true){
-            int direction, count;
-            while (true){
-                System.out.println(DIRECTION_LEFT + ":Left " + DIRECTION_RIGHT + ":Right " + DIRECTION_UP + ":Up " + DIRECTION_DOWN + ":Down");
-                System.out.print("direction:");
-                direction = sc.nextInt();
-                if(direction == DIRECTION_LEFT || direction == DIRECTION_RIGHT || direction == DIRECTION_UP || direction == DIRECTION_DOWN){
-                    break;
-                }
-                System.out.println("Illegal argument.");
-            }
-
-            while (true){
-                String count_str = "";
-                switch (direction){
-                    case DIRECTION_LEFT:
-                    case DIRECTION_RIGHT:
-                        count_str = "row";
-                        break;
-
-                    case DIRECTION_UP:
-                    case DIRECTION_DOWN:
-                        count_str = "column";
-                        break;
-                }
-
-                System.out.print(count_str + ":");
-                count = sc.nextInt();
-                if(count>=0 && count< blocks[0][0].length){
-                    break;
-                }
-                System.out.println("Illegal argument.");
-            }
-
-            boolean success = turn(direction, count);
-            if(success){
-                break;
-            }
-            System.out.println("Illegal argument.");
-        }
-
     }
 
     public void randomMark(){
@@ -351,29 +249,6 @@ public class Cube {
             }
         }
         return checkFlg;
-    }
-
-    public void showField(){
-        for(int row = 0; row< blocks[0].length; row++){
-            for(int column = 0; column< blocks[0][0].length; column++){
-                char markChar;
-                switch (getMark(column, row, 0)){
-                    case Block.MARK_NONE:
-                        markChar = '-';
-                        break;
-                    case Block.MARK_CIRCLE:
-                        markChar = 'o';
-                        break;
-                    case Block.MARK_CROSS:
-                        markChar = 'x';
-                        break;
-                    default:
-                        throw new IllegalStateException();
-                }
-                System.out.print(markChar);
-            }
-            System.out.println();
-        }
     }
 
 }
