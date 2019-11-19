@@ -39,7 +39,7 @@ public class Cube {
         return mark(mark, column, row, 0);
     }
 
-    public boolean mark(int mark, int column, int row, int depth){
+    private boolean mark(int mark, int column, int row, int depth){
         if(column == 1 && row == 1 && depth == 1){
             return false;
         }
@@ -50,7 +50,7 @@ public class Cube {
         return getMark(column, row, 0);
     }
 
-    public int getMark(int column, int row, int depth){
+    private int getMark(int column, int row, int depth){
         return blocks[depth][row][column].getMark();
     }
 
@@ -69,7 +69,7 @@ public class Cube {
         }
     }
 
-    public boolean turnRow(int direction ,int row){
+    private boolean turnRow(int direction ,int row){
         //Front
         Block tmpBlock0 = blocks[0][row][0];
         Block tmpBlock1 = blocks[0][row][1];
@@ -128,7 +128,7 @@ public class Cube {
 
     }
 
-    public boolean turnColumn(int direction, int column){
+    private boolean turnColumn(int direction, int column){
         //Front
         Block tmpBlock0 = blocks[0][0][column];
         Block tmpBlock1 = blocks[0][1][column];
