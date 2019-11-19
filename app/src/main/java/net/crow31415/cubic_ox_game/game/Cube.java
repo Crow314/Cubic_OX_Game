@@ -251,4 +251,8 @@ public class Cube {
         return checkFlg;
     }
 
+    public int getSize(){
+        return blocks.length;
+    }
+
 }
