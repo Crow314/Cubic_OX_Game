@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mBlockList = new Button[3][3];
-        mCube = new Cube();
-        mTurn = Block.MARK_CIRCLE;
 
         mBlockList[0][0] = findViewById(R.id.button_LU);
         mBlockList[0][1] = findViewById(R.id.button_CU);
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         Button TurnButtonDownC = findViewById(R.id.button_turn_Down_C);
         Button TurnButtonDownR = findViewById(R.id.button_turn_Down_R);
 
-
+        //ボタンイベントリスナー設定
         //Mark
         mBlockList[0][0].setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,6 +202,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //初期化処理
+        init();
+
+    }
+
+    private void init(){
+        mCube = new Cube();
+        mCube.randomMark();
+        mTurn = Block.MARK_CIRCLE;
+        reload();
     }
 
     private void reload(){
