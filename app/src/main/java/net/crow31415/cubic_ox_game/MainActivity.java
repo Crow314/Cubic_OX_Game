@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         mBlockList = new Button[3][3];
 
+        Button resetButtonUpside = findViewById(R.id.button_reset_upside);
+        Button resetButtonDownside = findViewById(R.id.button_reset_downside);
+
         mBlockList[0][0] = findViewById(R.id.button_LU);
         mBlockList[0][1] = findViewById(R.id.button_CU);
         mBlockList[0][2] = findViewById(R.id.button_RU);
@@ -57,6 +60,21 @@ public class MainActivity extends AppCompatActivity {
         Button turnButtonDownR = findViewById(R.id.button_turn_Down_R);
 
         //ボタンイベントリスナー設定
+        //Reset
+        resetButtonUpside.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                init();
+            }
+        });
+
+        resetButtonDownside.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                init();
+            }
+        });
+
         //Mark
         mBlockList[0][0].setOnClickListener(new View.OnClickListener() {
             @Override

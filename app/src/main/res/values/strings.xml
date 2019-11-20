@@ -2,6 +2,7 @@
     <string name="app_name">Cubic_OX_Game</string>
     <string name="turn_circle">Turn of \'O\'</string>
     <string name="turn_cross">Turn of \'X\'</string>
+    <string name="btn_reset">Reset</string>
     <string name="mark_circle">O</string>
     <string name="mark_cross">X</string>
     <string name="arrow_left">←</string>
