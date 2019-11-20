@@ -40,21 +40,21 @@ public class MainActivity extends AppCompatActivity {
         mBlockList[2][1] = findViewById(R.id.button_CD);
         mBlockList[2][2] = findViewById(R.id.button_RD);
 
-        Button TurnButtonLeftU = findViewById(R.id.button_turn_Left_U);
-        Button TurnButtonLeftC = findViewById(R.id.button_turn_Left_C);
-        Button TurnButtonLeftD = findViewById(R.id.button_turn_Left_D);
+        Button turnButtonLeftU = findViewById(R.id.button_turn_Left_U);
+        Button turnButtonLeftC = findViewById(R.id.button_turn_Left_C);
+        Button turnButtonLeftD = findViewById(R.id.button_turn_Left_D);
 
-        Button TurnButtonRightU = findViewById(R.id.button_turn_Right_U);
-        Button TurnButtonRightC = findViewById(R.id.button_turn_Right_C);
-        Button TurnButtonRightD = findViewById(R.id.button_turn_Right_D);
+        Button turnButtonRightU = findViewById(R.id.button_turn_Right_U);
+        Button turnButtonRightC = findViewById(R.id.button_turn_Right_C);
+        Button turnButtonRightD = findViewById(R.id.button_turn_Right_D);
 
-        Button TurnButtonUpL = findViewById(R.id.button_turn_Up_L);
-        Button TurnButtonUpC = findViewById(R.id.button_turn_Up_C);
-        Button TurnButtonUpR = findViewById(R.id.button_turn_Up_R);
+        Button turnButtonUpL = findViewById(R.id.button_turn_Up_L);
+        Button turnButtonUpC = findViewById(R.id.button_turn_Up_C);
+        Button turnButtonUpR = findViewById(R.id.button_turn_Up_R);
 
-        Button TurnButtonDownL = findViewById(R.id.button_turn_Down_L);
-        Button TurnButtonDownC = findViewById(R.id.button_turn_Down_C);
-        Button TurnButtonDownR = findViewById(R.id.button_turn_Down_R);
+        Button turnButtonDownL = findViewById(R.id.button_turn_Down_L);
+        Button turnButtonDownC = findViewById(R.id.button_turn_Down_C);
+        Button turnButtonDownR = findViewById(R.id.button_turn_Down_R);
 
         //ボタンイベントリスナー設定
         //Mark
@@ -122,21 +122,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //TurnLeft
-        TurnButtonLeftU.setOnClickListener(new View.OnClickListener() {
+        turnButtonLeftU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_LEFT, 0);
             }
         });
 
-        TurnButtonLeftC.setOnClickListener(new View.OnClickListener() {
+        turnButtonLeftC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_LEFT, 1);
             }
         });
 
-        TurnButtonLeftD.setOnClickListener(new View.OnClickListener() {
+        turnButtonLeftD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_LEFT, 2);
@@ -144,21 +144,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //TurnRight
-        TurnButtonRightU.setOnClickListener(new View.OnClickListener() {
+        turnButtonRightU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_RIGHT, 0);
             }
         });
 
-        TurnButtonRightC.setOnClickListener(new View.OnClickListener() {
+        turnButtonRightC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_RIGHT, 1);
             }
         });
 
-        TurnButtonRightD.setOnClickListener(new View.OnClickListener() {
+        turnButtonRightD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_RIGHT, 2);
@@ -166,21 +166,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //TurnUp
-        TurnButtonUpL.setOnClickListener(new View.OnClickListener() {
+        turnButtonUpL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_UP, 0);
             }
         });
 
-        TurnButtonUpC.setOnClickListener(new View.OnClickListener() {
+        turnButtonUpC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_UP, 1);
             }
         });
 
-        TurnButtonUpR.setOnClickListener(new View.OnClickListener() {
+        turnButtonUpR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_UP, 2);
@@ -188,21 +188,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //TurnDown
-        TurnButtonDownL.setOnClickListener(new View.OnClickListener() {
+        turnButtonDownL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_DOWN, 0);
             }
         });
 
-        TurnButtonDownC.setOnClickListener(new View.OnClickListener() {
+        turnButtonDownC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_DOWN, 1);
             }
         });
 
-        TurnButtonDownR.setOnClickListener(new View.OnClickListener() {
+        turnButtonDownR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_DOWN, 2);
