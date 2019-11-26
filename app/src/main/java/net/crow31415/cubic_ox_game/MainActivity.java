@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import net.crow31415.cubic_ox_game.game.Block;
@@ -14,34 +13,39 @@ import net.crow31415.cubic_ox_game.game.Cube;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextTurnUpside;
-    private TextView mTextTurnDownside;
-    private Button[][] mBlockList;
     private Cube mCube;
     private int mTurn;
+    private int mCircleColor;
+    private int mCrossColor;
+    private TextView mTextTurnUpside;
+    private TextView mTextTurnDownside;
+    private Button[][] mBlockButtonList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mCircleColor = Color.parseColor("#F08080");
+        mCrossColor = Color.parseColor("#20B2AA");
+
         mTextTurnUpside = findViewById(R.id.text_turn_upside);
         mTextTurnDownside = findViewById(R.id.text_turn_downside);
 
-        mBlockList = new Button[3][3];
+        mBlockButtonList = new Button[3][3];
 
         Button resetButtonUpside = findViewById(R.id.button_reset_upside);
         Button resetButtonDownside = findViewById(R.id.button_reset_downside);
 
-        mBlockList[0][0] = findViewById(R.id.button_LU);
-        mBlockList[0][1] = findViewById(R.id.button_CU);
-        mBlockList[0][2] = findViewById(R.id.button_RU);
-        mBlockList[1][0] = findViewById(R.id.button_LC);
-        mBlockList[1][1] = findViewById(R.id.button_CC);
-        mBlockList[1][2] = findViewById(R.id.button_RC);
-        mBlockList[2][0] = findViewById(R.id.button_LD);
-        mBlockList[2][1] = findViewById(R.id.button_CD);
-        mBlockList[2][2] = findViewById(R.id.button_RD);
+        mBlockButtonList[0][0] = findViewById(R.id.button_LU);
+        mBlockButtonList[0][1] = findViewById(R.id.button_CU);
+        mBlockButtonList[0][2] = findViewById(R.id.button_RU);
+        mBlockButtonList[1][0] = findViewById(R.id.button_LC);
+        mBlockButtonList[1][1] = findViewById(R.id.button_CC);
+        mBlockButtonList[1][2] = findViewById(R.id.button_RC);
+        mBlockButtonList[2][0] = findViewById(R.id.button_LD);
+        mBlockButtonList[2][1] = findViewById(R.id.button_CD);
+        mBlockButtonList[2][2] = findViewById(R.id.button_RD);
 
         Button turnButtonLeftU = findViewById(R.id.button_turn_Left_U);
         Button turnButtonLeftC = findViewById(R.id.button_turn_Left_C);
@@ -76,63 +80,63 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Mark
-        mBlockList[0][0].setOnClickListener(new View.OnClickListener() {
+        mBlockButtonList[0][0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mark(0, 0);
             }
         });
 
-        mBlockList[0][1].setOnClickListener(new View.OnClickListener() {
+        mBlockButtonList[0][1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mark(1, 0);
             }
         });
 
-        mBlockList[0][2].setOnClickListener(new View.OnClickListener() {
+        mBlockButtonList[0][2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mark(2, 0);
             }
         });
 
-        mBlockList[1][0].setOnClickListener(new View.OnClickListener() {
+        mBlockButtonList[1][0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mark(0, 1);
             }
         });
 
-        mBlockList[1][1].setOnClickListener(new View.OnClickListener() {
+        mBlockButtonList[1][1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mark(1, 1);
             }
         });
 
-        mBlockList[1][2].setOnClickListener(new View.OnClickListener() {
+        mBlockButtonList[1][2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mark(2, 1);
             }
         });
 
-        mBlockList[2][0].setOnClickListener(new View.OnClickListener() {
+        mBlockButtonList[2][0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mark(0, 2);
             }
         });
 
-        mBlockList[2][1].setOnClickListener(new View.OnClickListener() {
+        mBlockButtonList[2][1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mark(1, 2);
             }
         });
 
-        mBlockList[2][2].setOnClickListener(new View.OnClickListener() {
+        mBlockButtonList[2][2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mark(2, 2);
@@ -245,17 +249,21 @@ public class MainActivity extends AppCompatActivity {
             case Block.MARK_CIRCLE:
                 mTextTurnUpside.setText(R.string.turn_circle);
                 mTextTurnDownside.setText(R.string.turn_circle);
+                mTextTurnUpside.setTextColor(mCircleColor);
+                mTextTurnDownside.setTextColor(mCircleColor);
                 break;
 
             case Block.MARK_CROSS:
                 mTextTurnUpside.setText(R.string.turn_cross);
                 mTextTurnDownside.setText(R.string.turn_cross);
+                mTextTurnUpside.setTextColor(mCrossColor);
+                mTextTurnDownside.setTextColor(mCrossColor);
                 break;
         }
 
         for(int row=0; row<mCube.getSize(); row++){
             for(int column=0; column<mCube.getSize(); column++){
-                Button button = mBlockList[row][column];
+                Button button = mBlockButtonList[row][column];
                 switch(mCube.getMark(column, row)){
                     case Block.MARK_NONE:
                         button.setBackgroundResource(android.R.drawable.btn_default);
@@ -263,12 +271,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case Block.MARK_CIRCLE:
-                        button.setBackgroundColor(Color.parseColor("#FF4444"));
+                        button.setBackgroundColor(mCircleColor);
                         button.setText(R.string.mark_circle);
                         break;
 
                     case Block.MARK_CROSS:
-                        button.setBackgroundColor(Color.parseColor("#4444FF"));
+                        button.setBackgroundColor(mCrossColor);
                         button.setText(R.string.mark_cross);
                         break;
                 }
