@@ -1,4 +1,4 @@
-package net.crow31415.cubic_ox_game;
+package net.crow31415.cubic_ox_game.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import net.crow31415.cubic_ox_game.R;
 import net.crow31415.cubic_ox_game.game.Block;
 import net.crow31415.cubic_ox_game.game.Cube;
 
