@@ -42,6 +42,18 @@
             android:layout_gravity="center">
 
             <Button
+                android:id="@+id/button_turn_counterclockwise_upside"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="3"
+                android:layout_rowWeight="3"
+                android:textSize="25sp"
+                android:text="@string/arrow_LD"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:textAllCaps="false" />
+
+            <Button
                 android:id="@+id/button_turn_Up_L"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -75,6 +87,18 @@
                 android:text="@string/arrow_up"
                 android:layout_row="0"
                 android:layout_column="3"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/button_turn_clockwise_upside"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="3"
+                android:layout_rowWeight="3"
+                android:textSize="25sp"
+                android:text="@string/arrow_RD"
+                android:layout_row="0"
+                android:layout_column="4"
                 android:textAllCaps="false" />
 
             <Button
@@ -258,6 +282,18 @@
                 android:textAllCaps="false" />
 
             <Button
+                android:id="@+id/button_turn_clockwise_downside"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="3"
+                android:layout_rowWeight="3"
+                android:textSize="25sp"
+                android:text="@string/arrow_LU"
+                android:layout_row="4"
+                android:layout_column="0"
+                android:textAllCaps="false" />
+
+            <Button
                 android:id="@+id/button_turn_Down_L"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -293,6 +329,17 @@
                 android:layout_column="3"
                 android:textAllCaps="false" />
 
+            <Button
+                android:id="@+id/button_turn_counterclockwise_downside"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="3"
+                android:layout_rowWeight="3"
+                android:textSize="25sp"
+                android:text="@string/arrow_RU"
+                android:layout_row="4"
+                android:layout_column="4"
+                android:textAllCaps="false" />
         </GridLayout>
 
         <TextView

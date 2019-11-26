@@ -9,4 +9,8 @@
     <string name="arrow_right">→</string>
     <string name="arrow_up">↑</string>
     <string name="arrow_down">↓</string>
+    <string name="arrow_RD">↘</string>
+    <string name="arrow_LU">↖</string>
+    <string name="arrow_LD">↙</string>
+    <string name="arrow_RU">↗</string>
 </resources>

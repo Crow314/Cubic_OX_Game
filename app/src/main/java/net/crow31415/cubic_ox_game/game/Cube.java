@@ -6,6 +6,8 @@ public class Cube {
     public static final int DIRECTION_RIGHT = 1;
     public static final int DIRECTION_UP = 2;
     public static final int DIRECTION_DOWN = 3;
+    public static final int DIRECTION_CLOCKWISE = 4;
+    public static final int DIRECTION_COUNTERCLOCKWISE = 5;
 
     private Block[][][] blocks;
 
@@ -63,6 +65,10 @@ public class Cube {
             case DIRECTION_UP:
             case DIRECTION_DOWN:
                 return turnColumn(direction, count);
+
+            case DIRECTION_CLOCKWISE:
+            case DIRECTION_COUNTERCLOCKWISE:
+                return turnHorizontal(direction);
 
             default:
                 return false;
@@ -160,6 +166,58 @@ public class Cube {
                 //Down <- Front(tmp)
                 blocks[0][2][column] = tmpBlock0;
                 blocks[1][2][column] = tmpBlock1;
+
+                return true;
+
+            default:
+                return false;
+        }
+
+    }
+
+    private boolean turnHorizontal(int direction){
+        int depth = 0;
+
+        //Up
+        Block tmpBlock0 = blocks[depth][0][0];
+        Block tmpBlock1 = blocks[depth][0][1];
+
+        switch (direction){
+            case DIRECTION_CLOCKWISE:
+                //Up <- Left
+                blocks[depth][0][0] = blocks[depth][2][0];
+                blocks[depth][0][1] = blocks[depth][1][0];
+
+                //Left <- Down
+                blocks[depth][2][0] = blocks[depth][2][2];
+                blocks[depth][1][0] = blocks[depth][2][1];
+
+                //Down <- Right
+                blocks[depth][2][2] = blocks[depth][0][2];
+                blocks[depth][2][1] = blocks[depth][1][2];
+
+                //Right <- Up(tmp)
+                blocks[depth][0][2] = tmpBlock0;
+                blocks[depth][1][2] = tmpBlock1;
+
+                return true;
+
+            case DIRECTION_COUNTERCLOCKWISE:
+                //Up <- Right
+                blocks[depth][0][0] = blocks[depth][0][2];
+                blocks[depth][0][1] = blocks[depth][1][2];
+
+                //Right <- Down
+                blocks[depth][0][2] = blocks[depth][2][2];
+                blocks[depth][1][2] = blocks[depth][2][1];
+
+                //Down <- Left
+                blocks[depth][2][2] = blocks[depth][2][0];
+                blocks[depth][2][1] = blocks[depth][1][0];
+
+                //Left <- Up(tmp)
+                blocks[depth][2][0] = tmpBlock0;
+                blocks[depth][1][0] = tmpBlock1;
 
                 return true;
 

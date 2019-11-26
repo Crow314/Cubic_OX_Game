@@ -63,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
         Button turnButtonDownC = findViewById(R.id.button_turn_Down_C);
         Button turnButtonDownR = findViewById(R.id.button_turn_Down_R);
 
+        Button turnButtonCounterclockwiseU = findViewById(R.id.button_turn_counterclockwise_upside);
+        Button turnButtonClockwiseU = findViewById(R.id.button_turn_clockwise_upside);
+        Button turnButtonClockwiseD = findViewById(R.id.button_turn_clockwise_downside);
+        Button turnButtonCounterclockwiseD = findViewById(R.id.button_turn_counterclockwise_downside);
+
         //ボタンイベントリスナー設定
         //Reset
         resetButtonUpside.setOnClickListener(new View.OnClickListener() {
@@ -228,6 +233,35 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_DOWN, 2);
+            }
+        });
+
+        //TurnHorizontal
+        turnButtonCounterclockwiseU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turn(Cube.DIRECTION_COUNTERCLOCKWISE, 0);
+            }
+        });
+
+        turnButtonClockwiseU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turn(Cube.DIRECTION_CLOCKWISE, 0);
+            }
+        });
+
+        turnButtonClockwiseD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turn(Cube.DIRECTION_CLOCKWISE, 0);
+            }
+        });
+
+        turnButtonCounterclockwiseD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turn(Cube.DIRECTION_COUNTERCLOCKWISE, 0);
             }
         });
 
