@@ -12,7 +12,7 @@ import net.crow31415.cubic_ox_game.R;
 import net.crow31415.cubic_ox_game.game.Block;
 import net.crow31415.cubic_ox_game.game.Cube;
 
-public class MainActivity extends AppCompatActivity {
+public class LocalGameActivity extends AppCompatActivity {
 
     private Cube mCube;
     private int mTurn;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_local_game);
 
         mCircleColor = Color.parseColor("#F08080");
         mCrossColor = Color.parseColor("#20B2AA");
