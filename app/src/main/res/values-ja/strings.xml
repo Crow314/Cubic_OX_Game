@@ -5,4 +5,6 @@
     <string name="btn_start_local">スタート</string>
     <string name="turn_circle">O の番です</string>
     <string name="turn_cross">X の番です</string>
+    <string name="result_circle">O の勝利!</string>
+    <string name="result_cross">X の勝利!</string>
 </resources>

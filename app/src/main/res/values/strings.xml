@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name" translatable="false">Cubic OX Game</string>
+    <string name="app_name">Cubic OX Game</string>
     <string name="turn_circle">Turn of \'O\'</string>
     <string name="turn_cross">Turn of \'X\'</string>
+    <string name="result_circle">\'O\' won!</string>
+    <string name="result_cross">\'X\' won!</string>
     <string name="btn_start_local">Start</string>
     <string name="btn_reset">Reset</string>
     <string name="mark_circle" translatable="false">O</string>

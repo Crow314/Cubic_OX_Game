@@ -21,6 +21,25 @@ public class LocalGameActivity extends AppCompatActivity {
     private TextView mTextTurnUpside;
     private TextView mTextTurnDownside;
     private Button[][] mBlockButtonList;
+    private Button mResetButtonUpside;
+    private Button mResetButtonDownside;
+    private Button mTurnButtonLeftU;
+    private Button mTurnButtonLeftC;
+    private Button mTurnButtonLeftD;
+    private Button mTurnButtonRightU;
+    private Button mTurnButtonRightC;
+    private Button mTurnButtonRightD;
+    private Button mTurnButtonUpL;
+    private Button mTurnButtonUpC;
+    private Button mTurnButtonUpR;
+    private Button mTurnButtonDownL;
+    private Button mTurnButtonDownC;
+    private Button mTurnButtonDownR;
+    private Button mTurnButtonCounterclockwiseU;
+    private Button mTurnButtonClockwiseU;
+    private Button mTurnButtonClockwiseD;
+    private Button mTurnButtonCounterclockwiseD;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +54,8 @@ public class LocalGameActivity extends AppCompatActivity {
 
         mBlockButtonList = new Button[3][3];
 
-        Button resetButtonUpside = findViewById(R.id.button_reset_upside);
-        Button resetButtonDownside = findViewById(R.id.button_reset_downside);
+        mResetButtonUpside = findViewById(R.id.button_reset_upside);
+        mResetButtonDownside = findViewById(R.id.button_reset_downside);
 
         mBlockButtonList[0][0] = findViewById(R.id.button_LU);
         mBlockButtonList[0][1] = findViewById(R.id.button_CU);
@@ -48,37 +67,37 @@ public class LocalGameActivity extends AppCompatActivity {
         mBlockButtonList[2][1] = findViewById(R.id.button_CD);
         mBlockButtonList[2][2] = findViewById(R.id.button_RD);
 
-        Button turnButtonLeftU = findViewById(R.id.button_turn_Left_U);
-        Button turnButtonLeftC = findViewById(R.id.button_turn_Left_C);
-        Button turnButtonLeftD = findViewById(R.id.button_turn_Left_D);
+        mTurnButtonLeftU = findViewById(R.id.button_turn_Left_U);
+        mTurnButtonLeftC = findViewById(R.id.button_turn_Left_C);
+        mTurnButtonLeftD = findViewById(R.id.button_turn_Left_D);
 
-        Button turnButtonRightU = findViewById(R.id.button_turn_Right_U);
-        Button turnButtonRightC = findViewById(R.id.button_turn_Right_C);
-        Button turnButtonRightD = findViewById(R.id.button_turn_Right_D);
+        mTurnButtonRightU = findViewById(R.id.button_turn_Right_U);
+        mTurnButtonRightC = findViewById(R.id.button_turn_Right_C);
+        mTurnButtonRightD = findViewById(R.id.button_turn_Right_D);
 
-        Button turnButtonUpL = findViewById(R.id.button_turn_Up_L);
-        Button turnButtonUpC = findViewById(R.id.button_turn_Up_C);
-        Button turnButtonUpR = findViewById(R.id.button_turn_Up_R);
+        mTurnButtonUpL = findViewById(R.id.button_turn_Up_L);
+        mTurnButtonUpC = findViewById(R.id.button_turn_Up_C);
+        mTurnButtonUpR = findViewById(R.id.button_turn_Up_R);
 
-        Button turnButtonDownL = findViewById(R.id.button_turn_Down_L);
-        Button turnButtonDownC = findViewById(R.id.button_turn_Down_C);
-        Button turnButtonDownR = findViewById(R.id.button_turn_Down_R);
+        mTurnButtonDownL = findViewById(R.id.button_turn_Down_L);
+        mTurnButtonDownC = findViewById(R.id.button_turn_Down_C);
+        mTurnButtonDownR = findViewById(R.id.button_turn_Down_R);
 
-        Button turnButtonCounterclockwiseU = findViewById(R.id.button_turn_counterclockwise_upside);
-        Button turnButtonClockwiseU = findViewById(R.id.button_turn_clockwise_upside);
-        Button turnButtonClockwiseD = findViewById(R.id.button_turn_clockwise_downside);
-        Button turnButtonCounterclockwiseD = findViewById(R.id.button_turn_counterclockwise_downside);
+        mTurnButtonCounterclockwiseU = findViewById(R.id.button_turn_counterclockwise_upside);
+        mTurnButtonClockwiseU = findViewById(R.id.button_turn_clockwise_upside);
+        mTurnButtonClockwiseD = findViewById(R.id.button_turn_clockwise_downside);
+        mTurnButtonCounterclockwiseD = findViewById(R.id.button_turn_counterclockwise_downside);
 
         //ボタンイベントリスナー設定
         //Reset
-        resetButtonUpside.setOnClickListener(new View.OnClickListener() {
+        mResetButtonUpside.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 init();
             }
         });
 
-        resetButtonDownside.setOnClickListener(new View.OnClickListener() {
+        mResetButtonDownside.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 init();
@@ -150,21 +169,21 @@ public class LocalGameActivity extends AppCompatActivity {
         });
 
         //TurnLeft
-        turnButtonLeftU.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonLeftU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_LEFT, 0);
             }
         });
 
-        turnButtonLeftC.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonLeftC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_LEFT, 1);
             }
         });
 
-        turnButtonLeftD.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonLeftD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_LEFT, 2);
@@ -172,21 +191,21 @@ public class LocalGameActivity extends AppCompatActivity {
         });
 
         //TurnRight
-        turnButtonRightU.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonRightU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_RIGHT, 0);
             }
         });
 
-        turnButtonRightC.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonRightC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_RIGHT, 1);
             }
         });
 
-        turnButtonRightD.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonRightD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_RIGHT, 2);
@@ -194,21 +213,21 @@ public class LocalGameActivity extends AppCompatActivity {
         });
 
         //TurnUp
-        turnButtonUpL.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonUpL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_UP, 0);
             }
         });
 
-        turnButtonUpC.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonUpC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_UP, 1);
             }
         });
 
-        turnButtonUpR.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonUpR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_UP, 2);
@@ -216,21 +235,21 @@ public class LocalGameActivity extends AppCompatActivity {
         });
 
         //TurnDown
-        turnButtonDownL.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonDownL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_DOWN, 0);
             }
         });
 
-        turnButtonDownC.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonDownC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_DOWN, 1);
             }
         });
 
-        turnButtonDownR.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonDownR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_DOWN, 2);
@@ -238,28 +257,28 @@ public class LocalGameActivity extends AppCompatActivity {
         });
 
         //TurnHorizontal
-        turnButtonCounterclockwiseU.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonCounterclockwiseU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_COUNTERCLOCKWISE, 0);
             }
         });
 
-        turnButtonClockwiseU.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonClockwiseU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_CLOCKWISE, 0);
             }
         });
 
-        turnButtonClockwiseD.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonClockwiseD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_CLOCKWISE, 0);
             }
         });
 
-        turnButtonCounterclockwiseD.setOnClickListener(new View.OnClickListener() {
+        mTurnButtonCounterclockwiseD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turn(Cube.DIRECTION_COUNTERCLOCKWISE, 0);
@@ -276,6 +295,10 @@ public class LocalGameActivity extends AppCompatActivity {
         mCube = new Cube();
         mCube.randomMark();
         mTurn = Block.MARK_CIRCLE;
+        mResetButtonUpside.setEnabled(false);
+        mResetButtonUpside.setVisibility(View.INVISIBLE);
+        mResetButtonDownside.setEnabled(false);
+        mResetButtonDownside.setVisibility(View.INVISIBLE);
         reload();
     }
 
@@ -317,6 +340,11 @@ public class LocalGameActivity extends AppCompatActivity {
                 }
             }
         }
+
+        int result = mCube.getResult();
+        if(result != -1){
+            finishGame(result);
+        }
     }
 
     private void mark(int column, int row){
@@ -343,6 +371,45 @@ public class LocalGameActivity extends AppCompatActivity {
 
             case Block.MARK_CROSS:
                 mTurn = Block.MARK_CIRCLE;
+                break;
+        }
+    }
+    private void finishGame(int result){
+        mResetButtonUpside.setEnabled(true);
+        mResetButtonUpside.setVisibility(View.VISIBLE);
+        mResetButtonDownside.setEnabled(true);
+        mResetButtonDownside.setVisibility(View.VISIBLE);
+
+        mTurnButtonLeftU.setEnabled(false);
+        mTurnButtonLeftC.setEnabled(false);
+        mTurnButtonLeftD.setEnabled(false);
+        mTurnButtonRightU.setEnabled(false);
+        mTurnButtonRightC.setEnabled(false);
+        mTurnButtonRightD.setEnabled(false);
+        mTurnButtonUpL.setEnabled(false);
+        mTurnButtonUpC.setEnabled(false);
+        mTurnButtonUpR.setEnabled(false);
+        mTurnButtonDownL.setEnabled(false);
+        mTurnButtonDownC.setEnabled(false);
+        mTurnButtonDownR.setEnabled(false);
+        mTurnButtonCounterclockwiseU.setEnabled(false);
+        mTurnButtonClockwiseU.setEnabled(false);
+        mTurnButtonClockwiseD.setEnabled(false);
+        mTurnButtonCounterclockwiseD.setEnabled(false);
+
+        switch(result){
+            case Block.MARK_CIRCLE:
+                mTextTurnUpside.setText(R.string.result_circle);
+                mTextTurnDownside.setText(R.string.result_circle);
+                mTextTurnUpside.setTextColor(mCircleColor);
+                mTextTurnDownside.setTextColor(mCircleColor);
+                break;
+
+            case Block.MARK_CROSS:
+                mTextTurnUpside.setText(R.string.result_cross);
+                mTextTurnDownside.setText(R.string.result_cross);
+                mTextTurnUpside.setTextColor(mCrossColor);
+                mTextTurnDownside.setTextColor(mCrossColor);
                 break;
         }
     }
