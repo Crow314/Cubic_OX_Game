@@ -1,16 +1,17 @@
 <resources>
-    <string name="app_name">Cubic_OX_Game</string>
+    <string name="app_name" translatable="false">Cubic OX Game</string>
     <string name="turn_circle">Turn of \'O\'</string>
     <string name="turn_cross">Turn of \'X\'</string>
+    <string name="btn_start_local">Start</string>
     <string name="btn_reset">Reset</string>
-    <string name="mark_circle">O</string>
-    <string name="mark_cross">X</string>
-    <string name="arrow_left">←</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_up">↑</string>
-    <string name="arrow_down">↓</string>
-    <string name="arrow_RD">↘</string>
-    <string name="arrow_LU">↖</string>
-    <string name="arrow_LD">↙</string>
-    <string name="arrow_RU">↗</string>
+    <string name="mark_circle" translatable="false">O</string>
+    <string name="mark_cross" translatable="false">X</string>
+    <string name="arrow_left" translatable="false">←</string>
+    <string name="arrow_right" translatable="false">→</string>
+    <string name="arrow_up" translatable="false">↑</string>
+    <string name="arrow_down" translatable="false">↓</string>
+    <string name="arrow_RD" translatable="false">↘</string>
+    <string name="arrow_LU" translatable="false">↖</string>
+    <string name="arrow_LD" translatable="false">↙</string>
+    <string name="arrow_RU" translatable="false">↗</string>
 </resources>
