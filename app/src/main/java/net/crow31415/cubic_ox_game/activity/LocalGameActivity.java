@@ -362,6 +362,33 @@ public class LocalGameActivity extends AppCompatActivity {
         boolean success = mCube.turn(direction, count);
         if(success){
             turnChange();
+            switch (direction){
+                case Cube.DIRECTION_LEFT:
+                    mTurnButtonList[Cube.DIRECTION_RIGHT][count].setEnabled(false);
+                    break;
+
+                case Cube.DIRECTION_RIGHT:
+                    mTurnButtonList[Cube.DIRECTION_LEFT][count].setEnabled(false);
+                    break;
+
+                case Cube.DIRECTION_UP:
+                    mTurnButtonList[Cube.DIRECTION_DOWN][count].setEnabled(false);
+                    break;
+
+                case Cube.DIRECTION_DOWN:
+                    mTurnButtonList[Cube.DIRECTION_UP][count].setEnabled(false);
+                    break;
+
+                case Cube.DIRECTION_CLOCKWISE:
+                    mTurnButtonList[Cube.DIRECTION_COUNTERCLOCKWISE][0].setEnabled(false);
+                    mTurnButtonList[Cube.DIRECTION_COUNTERCLOCKWISE][1].setEnabled(false);
+                    break;
+
+                case Cube.DIRECTION_COUNTERCLOCKWISE:
+                    mTurnButtonList[Cube.DIRECTION_CLOCKWISE][0].setEnabled(false);
+                    mTurnButtonList[Cube.DIRECTION_CLOCKWISE][1].setEnabled(false);
+                    break;
+            }
         }
         reload();
     }
@@ -375,6 +402,14 @@ public class LocalGameActivity extends AppCompatActivity {
             case Block.MARK_CROSS:
                 mTurn = Block.MARK_CIRCLE;
                 break;
+        }
+
+        for (Button[] buttons : mTurnButtonList) {
+            for (Button button : buttons) {
+                if (button != null) {
+                    button.setEnabled(true);
+                }
+            }
         }
     }
     private void finishGame(int result){
