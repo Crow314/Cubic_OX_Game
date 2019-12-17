@@ -299,6 +299,31 @@ public class LocalGameActivity extends AppCompatActivity {
         mResetButtonUpside.setVisibility(View.INVISIBLE);
         mResetButtonDownside.setEnabled(false);
         mResetButtonDownside.setVisibility(View.INVISIBLE);
+
+        mTurnButtonLeftU.setEnabled(true);
+        mTurnButtonLeftC.setEnabled(true);
+        mTurnButtonLeftD.setEnabled(true);
+        mTurnButtonRightU.setEnabled(true);
+        mTurnButtonRightC.setEnabled(true);
+        mTurnButtonRightD.setEnabled(true);
+        mTurnButtonUpL.setEnabled(true);
+        mTurnButtonUpC.setEnabled(true);
+        mTurnButtonUpR.setEnabled(true);
+        mTurnButtonDownL.setEnabled(true);
+        mTurnButtonDownC.setEnabled(true);
+        mTurnButtonDownR.setEnabled(true);
+        mTurnButtonCounterclockwiseU.setEnabled(true);
+        mTurnButtonClockwiseU.setEnabled(true);
+        mTurnButtonClockwiseD.setEnabled(true);
+        mTurnButtonCounterclockwiseD.setEnabled(true);
+
+        for(int row=0; row<mCube.getSize(); row++){
+            for(int column=0; column<mCube.getSize(); column++){
+                Button button = mBlockButtonList[row][column];
+                button.setEnabled(true);
+            }
+        }
+        
         reload();
     }
 
@@ -396,6 +421,13 @@ public class LocalGameActivity extends AppCompatActivity {
         mTurnButtonClockwiseU.setEnabled(false);
         mTurnButtonClockwiseD.setEnabled(false);
         mTurnButtonCounterclockwiseD.setEnabled(false);
+
+        for(int row=0; row<mCube.getSize(); row++){
+            for(int column=0; column<mCube.getSize(); column++){
+                Button button = mBlockButtonList[row][column];
+                button.setEnabled(false);
+            }
+        }
 
         switch(result){
             case Block.MARK_CIRCLE:
