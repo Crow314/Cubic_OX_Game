@@ -322,8 +322,8 @@ public class LocalGameActivity extends AppCompatActivity {
                 break;
         }
 
-        for(int row=0; row<mCube.getSize(); row++){
-            for(int column=0; column<mCube.getSize(); column++){
+        for(int row=0; row<mBlockButtonList.length; row++){
+            for(int column=0; column<mBlockButtonList[row].length; column++){
                 Button button = mBlockButtonList[row][column];
                 switch(mCube.getMark(column, row)){
                     case Block.MARK_NONE:
@@ -391,9 +391,8 @@ public class LocalGameActivity extends AppCompatActivity {
             }
         }
 
-        for(int row=0; row<mCube.getSize(); row++){
-            for(int column=0; column<mCube.getSize(); column++){
-                Button button = mBlockButtonList[row][column];
+        for (Button[] buttons : mBlockButtonList) {
+            for (Button button : buttons) {
                 button.setEnabled(false);
             }
         }
