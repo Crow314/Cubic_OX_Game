@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">@color/cork</color>
+    <color name="colorPrimaryDark">@color/orange</color>
+    <color name="colorAccent">@color/darkorange</color>
+
+    <color name="background_yellow">@color/limelight</color>
+    <color name="background_lavender">@color/frosty_white</color>
+
+    <color name="orange">#FFA500</color>
+    <color name="darkorange">#FF8C00</color>
+    <color name="sunshine">#F9BA32</color>
+    <color name="limelight">#FFF799</color>
+    <color name="cork">#C49A6A</color>
+    <color name="lavender_ice">#F7F6FB</color>
+    <color name="frosty_white">#E6EAE6</color>
+
 </resources>
