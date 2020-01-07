@@ -346,6 +346,9 @@ public class LocalGameActivity extends AppCompatActivity {
 
         int result = mCube.getResult();
         if(result != -1){
+            if(result == 0){
+                result = mTurn;
+            }
             finishGame(result);
         }
     }

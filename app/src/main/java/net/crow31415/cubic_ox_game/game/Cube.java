@@ -299,6 +299,8 @@ public class Cube {
     }
 
     public int getResult(){
+        int result = -1;
+
         //Check Row
         row:for(int row = 0; row< mBlocks[0].length; row++){
             int tmpFirstMark = getMark(0, row);
@@ -311,7 +313,11 @@ public class Cube {
                     continue row;
                 }
             }
-            return tmpFirstMark;
+            if(result == -1){
+                result = tmpFirstMark;
+            }else{
+                result = 0;
+            }
         }
 
         //Check Column
@@ -326,7 +332,11 @@ public class Cube {
                     continue column;
                 }
             }
-            return tmpFirstMark;
+            if(result == -1){
+                result = tmpFirstMark;
+            }else{
+                result = 0;
+            }
         }
 
         //Check Cross (LeftUp - RightDown)
@@ -343,7 +353,11 @@ public class Cube {
             }
         }
         if (checkFlg){
-            return tmpFirstMark;
+            if(result == -1){
+                result = tmpFirstMark;
+            }else{
+                result = 0;
+            }
         }
 
         //Check Cross (LeftDown - RightUp)
@@ -360,9 +374,14 @@ public class Cube {
             }
         }
         if (checkFlg){
-            return tmpFirstMark;
+            if(result == -1){
+                result = tmpFirstMark;
+            }else{
+                result = 0;
+            }
         }
-        return -1;
+
+        return result;
     }
 
     public int getSize(){
