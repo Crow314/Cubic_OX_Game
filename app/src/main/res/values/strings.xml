@@ -16,4 +16,5 @@
     <string name="arrow_LU" translatable="false">↖</string>
     <string name="arrow_LD" translatable="false">↙</string>
     <string name="arrow_RU" translatable="false">↗</string>
+    <string name="btn_rule">Rule</string>
 </resources>

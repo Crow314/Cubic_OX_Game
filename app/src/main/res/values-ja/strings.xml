@@ -7,4 +7,5 @@
     <string name="turn_cross">X の番です</string>
     <string name="result_circle">O の勝利!</string>
     <string name="result_cross">X の勝利!</string>
+    <string name="btn_rule">ルール</string>
 </resources>

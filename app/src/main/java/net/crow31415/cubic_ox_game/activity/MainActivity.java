@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button startLocalGameButton = findViewById(R.id.button_start_local);
+        Button ruleButton = findViewById(R.id.button_rule);
 
         //ボタンイベントリスナー設定
         //Start
@@ -24,6 +25,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplication(), LocalGameActivity.class);
+                intent.setAction(Intent.ACTION_VIEW);
+                startActivity(intent);
+            }
+        });
+
+        //Rule
+        ruleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication(), RuleActivity.class);
                 intent.setAction(Intent.ACTION_VIEW);
                 startActivity(intent);
             }
