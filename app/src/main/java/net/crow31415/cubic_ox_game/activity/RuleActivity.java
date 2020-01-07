@@ -24,6 +24,6 @@ public class RuleActivity extends AppCompatActivity {
             }
         });
 
-        webView.loadUrl("https://crow31415.net/nitnc/3i/al/logical_cubic/rule/");
+        webView.loadUrl("https://crow31415.net/nitnc/3i/al/logical_cube/rule/");
     }
 }
